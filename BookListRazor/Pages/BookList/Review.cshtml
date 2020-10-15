@@ -1,0 +1,35 @@
+﻿@page
+@model BookListRazor.Pages.BookList.ReviewModel
+@{
+    ViewData["Title"] = "Review";
+}
+
+<h1>Review</h1>
+
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        <div class="form-group row">
+            <div class="col-3">
+                <label for="BookName">Book Name</label>
+            </div>
+            <div class="col-6">
+                <textarea asp-for="Review.ReviewNote" class="form-control"  data-val-maxlength-max="300"  />
+            </div>
+            <span asp-validation-for="Review.ReviewNote" class="text-danger"></span>
+        </div>
+    
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <input type="submit" value="Create" class="btn btn-primary form-control" />
+            </div>
+            <div class="col-3">
+                <a asp-page="Shop" class="btn btn-success form-control">Back to list</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
