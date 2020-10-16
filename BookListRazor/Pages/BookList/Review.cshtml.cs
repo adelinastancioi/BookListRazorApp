@@ -14,6 +14,7 @@ namespace BookListRazor.Pages.BookList
         public ReviewModel(ApplicationDbContext _db)
         {
             db = _db;
+            
         }
         [BindProperty]
         public Review Review { get; set; }

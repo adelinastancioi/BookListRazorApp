@@ -6,17 +6,15 @@
 
 <h1>Shop</h1>
 
-
-
 <br />
 
 <div class="container row p-0 m-0">
     <div class="col-9">
         <h2 class="text-info">Book List</h2>
     </div>
-    <div class="col-3">
+    @*<div class="col-3">
         <a asp-page="Review" class="btn btn-info form-control text-white">Review a book </a>
-    </div>
+    </div>*@
     <div class="col-12 border p-3 mt-3">
         <form method="post">
             @if (Model.Books.Count() > 0)
@@ -36,16 +34,21 @@
                     </tr>
                     @foreach (var item in Model.Books)
                     {
-                        <tr>
-                            <td>@Html.DisplayFor(m => item.Name)</td>
-                            <td>@Html.DisplayFor(m => item.Author)</td>
-                            <td>@Html.DisplayFor(m => item.ISBN)</td>
-                            <td>
-                               
-                    <a asp-page="Cart" asp-page-handler="buynow" class="btn btn-primary btn-sm " asp-route-id="@item.Id">Buy Now</a>
+                <tr>
+                    <td>@Html.DisplayFor(m => item.Name)</td>
+                    <td>@Html.DisplayFor(m => item.Author)</td>
+                    <td>@Html.DisplayFor(m => item.ISBN)</td>
+                    <td>
 
-                            </td>
-                        </tr>
+                        <a asp-page="Cart" asp-page-handler="buynow" class="btn btn-primary btn-sm " asp-route-id="@item.Id">Buy Now</a>
+
+                    </td>
+                    <td>
+
+                        <a asp-page="Review" asp-page-handler="buynow" class="btn btn-primary btn-sm " asp-route-id="@item.Id">Review Book</a>
+
+                    </td>
+                </tr>
 
                     }
                 </table>

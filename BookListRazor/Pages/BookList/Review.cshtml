@@ -11,10 +11,12 @@
     <form method="post">
         <div class="form-group row">
             <div class="col-3">
-                <label for="BookName">Book Name</label>
+                <label for="BookName">Review</label>
             </div>
             <div class="col-6">
-                <textarea asp-for="Review.ReviewNote" class="form-control"  data-val-maxlength-max="300"  />
+                <textarea asp-for="Review.ReviewNote" id="textarea" class="form-control" data-val-maxlength-max="300" value="Enter Review" >
+                
+                </textarea>
             </div>
             <span asp-validation-for="Review.ReviewNote" class="text-danger"></span>
         </div>

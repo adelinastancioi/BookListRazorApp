@@ -12,7 +12,7 @@ namespace BookListRazor.Migrations
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
-#pragma warning disable 612, 618
+           #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
@@ -40,6 +40,7 @@ namespace BookListRazor.Migrations
                     b.ToTable("Book");
                 });
 #pragma warning restore 612, 618
-        }
+           
+            }
     }
 }
