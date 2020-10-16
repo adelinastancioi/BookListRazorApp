@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookListRazor.Model;
+using BookListRazor.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -10,9 +10,9 @@ namespace BookListRazor
 {
     public class EditModel : PageModel
     {
-        public readonly ApplicationDbContext db;
+        public readonly BookListRazorContext db;
 
-        public EditModel(ApplicationDbContext _db)
+        public EditModel(BookListRazorContext _db)
         {
             db = _db;
         }
@@ -30,7 +30,7 @@ namespace BookListRazor
                 var BookEdit = await db.Book.FindAsync(Book.Id);
                 BookEdit.Name = Book.Name;
                 BookEdit.Author = Book.Author;
-                BookEdit.ISBN = Book.ISBN;
+                BookEdit.Isbn = Book.Isbn;
 
                 await db.SaveChangesAsync();
                 return RedirectToPage("Index");

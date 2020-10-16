@@ -13,12 +13,13 @@
             <div class="col-3">
                 <label for="BookName">Review</label>
             </div>
+            <input asp-for="Review.BookId"  hidden />
             <div class="col-6">
-                <textarea asp-for="Review.ReviewNote" id="textarea" class="form-control" data-val-maxlength-max="300" value="Enter Review" >
+                <textarea asp-for="Review.Review1" id="textarea" class="form-control" data-val-maxlength-max="300" value="Enter Review" >
                 
                 </textarea>
             </div>
-            <span asp-validation-for="Review.ReviewNote" class="text-danger"></span>
+            <span asp-validation-for="Review.Review1" class="text-danger"></span>
         </div>
     
         <div class="form-group row">

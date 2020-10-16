@@ -28,7 +28,7 @@
                             <label asp-for="Books.FirstOrDefault().Author"></label>
                         </th>
                         <th>
-                            <label asp-for="Books.FirstOrDefault().ISBN"></label>
+                            <label asp-for="Books.FirstOrDefault().Isbn"></label>
                         </th>
 
                     </tr>
@@ -37,15 +37,15 @@
                 <tr>
                     <td>@Html.DisplayFor(m => item.Name)</td>
                     <td>@Html.DisplayFor(m => item.Author)</td>
-                    <td>@Html.DisplayFor(m => item.ISBN)</td>
+                    <td>@Html.DisplayFor(m => item.Isbn)</td>
                     <td>
 
-                        <a asp-page="Cart" asp-page-handler="buynow" class="btn btn-primary btn-sm " asp-route-id="@item.Id">Buy Now</a>
+                        <a asp-page="Cart" asp-page-handler="AddToCart" onclick="buttonClick" class="btn btn-primary btn-sm " asp-route-id="@item.Id">Add to cart</a>
 
                     </td>
                     <td>
 
-                        <a asp-page="Review" asp-page-handler="buynow" class="btn btn-primary btn-sm " asp-route-id="@item.Id">Review Book</a>
+                        <a asp-page="Review"  class="btn btn-primary btn-sm " asp-route-id="@item.Id">Review Book</a>
 
                     </td>
                 </tr>

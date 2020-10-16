@@ -1,9 +1,9 @@
 ﻿@page
 @model BookListRazor.Pages.BookList.CartModel
+
 @{
     ViewData["Title"] = "Cart";
 }
-
 
 
 <!DOCTYPE html>
@@ -16,37 +16,67 @@
 <body>
 
     <h3>Cart</h3>
-    <form method="post" asp-page="cart" asp-page-handler="update">
-        <table border="1">
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                 <th>Price</th>
-                <th>Quantity <input type="submit" value="Update" /></th>
-                <th>Sub Total</th>
-            </tr>
-            @*@foreach (var item in Model.Books)
-            {
-                <tr align="center">
-                    <td align="center">
-                        <a asp-page="cart" asp-page-handler="delete" asp-route-id="@item.Product.Id">Delete</a>
-                    </td>
-                    <td>@item.Product.Id</td>
-                    <td>@item.Product.Name</td>
-                    <td>$@item.Product.Price</td>
-                    <td><input type="number" name="quantities" value="@item.Quantity" min="1" style="width: 50px;" /></td>
-                    <td>
-                        $@(item.Product.Price * item.Quantity)
-                    </td>
-                </tr>
-            }
-            <tr>
-                <td colspan="6" align="right">Total</td>
-                <td align="center">$@Model.Total</td>
-            </tr>
-        </table>*@
-    </form>
-    <a asp-page="index">Continue Shopping</a>
+
+    <br />
+
+    <div class="container row p-0 m-0">
+        <div class="col-9">
+            <h2 class="text-info">Items List</h2>
+        </div>
+        
+
+        <div class="col-12 border p-3 mt-3">
+            <form method="post">
+                @if (Model.Items.Count() > 0)
+                {
+
+                    <table class="table table-striped border">
+                        <tr class="table-secondary">
+                            <th>
+                                <label asp-for="Items.FirstOrDefault().Name"></label>
+                            </th>
+                            @*<th>
+                        <label asp-for="Items.FirstOrDefault().Author"></label>
+                    </th>*@
+                            <th>
+                                <label asp-for="Items.FirstOrDefault().Price"></label>
+                            </th>
+
+                        </tr>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(m => item.Name)</td>
+                                @*<td>@Html.DisplayFor(m => item.Author)</td>*@
+                                <td>@Html.DisplayFor(m => item.Price)</td>
+                                <td>
+                                    <button asp-page-handler="Delete" asp-route-id="@item.BookId" onclick="return confirm('are you sure you want to delete?')" class="btn btn-danger btn-sm">Delete </button>
+                                    @*<a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm"> Edit </a>*@
+
+                                </td>
+                            </tr>
+
+                        }
+                    </table>
+                    <br />
+                    <br />
+                    <div class="col-3">
+                        <a asp-page="Cart" asp-route-id="-1" onclick="return confirm('Action completed')" class="btn btn-info form-control text-white">Buy</a>
+                    </div>
+                }
+                else
+                {
+                    <p> No items available</p>
+                }
+            </form>
+        </div>
+
+
+
+    </div>
+
+
+    <a asp-page="shop">Continue Shopping</a>
 
 </body>
 </html>

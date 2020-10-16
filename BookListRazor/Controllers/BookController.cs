@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BookListRazor.Model;
+using BookListRazor.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,9 +11,9 @@ namespace BookListRazor.Controllers
      [ApiController]
     public class BookController : Controller
     {
-        private readonly ApplicationDbContext dbContext;
+        private readonly BookListRazorContext dbContext;
 
-        public BookController(ApplicationDbContext db)
+        public BookController(BookListRazorContext db)
         {
             dbContext = db; 
         }

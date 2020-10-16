@@ -7,7 +7,7 @@ namespace BookListRazor.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "ISBN",
+                name: "Isbn",
                 table: "Book",
                 nullable: true);
         }
@@ -15,7 +15,7 @@ namespace BookListRazor.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "ISBN",
+                name: "Isbn",
                 table: "Book");
         }
     }
