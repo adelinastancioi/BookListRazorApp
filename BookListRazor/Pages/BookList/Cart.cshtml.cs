@@ -58,7 +58,7 @@ namespace BookListRazor.Pages.BookList
 
         public async Task<IActionResult> OnPostDelete(int id)
         {
-            // var item = await BookListRazorContext.Cart.FindAsync(id);
+            
             var item = BookListRazorContext.Cart.Where(x => x.BookId == id).FirstOrDefault();
             if (item == null)
             {
@@ -70,10 +70,6 @@ namespace BookListRazor.Pages.BookList
             return RedirectToPage("Cart");
         }
 
-        public async Task<IActionResult> ClearCart(int id)
-        {
-
-            return RedirectToPage("Shop");
-        }
+     
     }
 }

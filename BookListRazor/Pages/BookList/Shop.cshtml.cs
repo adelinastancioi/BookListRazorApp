@@ -35,9 +35,6 @@ namespace BookListRazor.Pages.BookList
             cart.Name = book.Name;
             cart.Price = book.Price;
 
-           
-
-      
             BookListRazorContext.Cart.Add(cart);
             await BookListRazorContext.SaveChangesAsync();
             return RedirectToPage("Cart");
