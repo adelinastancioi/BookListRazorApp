@@ -22,5 +22,6 @@ namespace BookListRazor
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
     }
 }
